@@ -307,7 +307,13 @@ body {
   left: 4%;
   bottom: 2%;
   text-transform: uppercase;
-  font-size: 0.8rem; }
+  font-size: 0.4em; }
+
+.brand {
+  position: absolute;
+  left: 4%;
+  top: 4%;
+  width: 16%; }
 
 .reveal p {
   font-weight: 300;

@@ -23,6 +23,9 @@
 	</head>
 	<body>
 		<div class="reveal">
+			<div class="brand">
+				<img src="img/asseco.svg">
+			</div>
 			<div class="slides">
 				<section>
 					<h1>CSS Flow</h1>
@@ -31,24 +34,20 @@
 
 				<section>
 					<section id="fragments">
-						<h3>Co będzię na prezentacji?</h3>
-						<p class="fragment">Metodologia BEM</p>
-						<p class="fragment">Flexbox</p>
-						<p class="fragment">Atomic Design</p>
+						<h3>Co na prezentacji?</h3>
+						<img data-src="img/fba.svg">
 					</section>
 				</section>
 
 				<section>
 					<section id="fragments">
 						<h3>Co dostanę?</h3>
-						<p class="fragment">Tutorial BEM (video)</p>
-						<p class="fragment">Cheatsheet Flexbox</p>
-						<p class="fragment">Pliki źródłowe</p>
+						<p class="fragment">VideoTut BEM, Cheatsheet Flexbox, Pliki źródłowe</p>
 					</section>
 				</section>
 
-				<section>
-					<h3>Zacznijmy od początku...</h3>
+				<section data-background="img/start.gif">
+					<h2 style="color: white">Zacznijmy od początku...</h2>
 				</section>
 
 				<section>
@@ -58,23 +57,97 @@
 						<p class="fragment fade-up">Uniwersalne założenia dla contentu i jego otoczenia</p>
 					</section>
 					<section>
-						<h3>Założenia usprawniające realizację responsywności</h3>
+						<h3>Realizacja responsywności</h3>
 						<p class="fragment fade-up">Używanie relatywnego przelicznika jednostek wielkości (em, rem, vw, vh, %, vmin, vmax)</p>
-						<p class="fragment fade-up">Minimalizowanie wielkości absolutnych (px, pt, pc, in, mm, cm)</p>
+						<p class="fragment fade-up">Minimalizowanie stosowania wielkości absolutnych (px, pt, pc, in, mm, cm)</p>
 						<p class="fragment fade-up">Metodologia</p>
-						<p class="fragment fade-up">Responsive frameworks</p>
+						<p class="fragment fade-up">Responsive frameworks & Tools</p>
 					</section>
 				</section>
 
 				<section>
 					<section id="fragments">
 						<h3>Metodologia BEM</h3>
-						<p><span class="fragment">block</span> <span class="fragment">_element</span> <span class="fragment">--modifier</span></p>
+						<p><span class="fragment">.block</span> <span class="fragment">_element</span> <span class="fragment">--modifier</span></p>
+					</section>
+					<section>
+						<h4>Block</h4>
+						<p class="fragment fade-in">Samodzielny, znaczącący element strony.</p>
+						<p class="fragment fade-in">Zarówno duże sekcje jak i mniejsze fragmenty, które mogą istnieć samodzielnie.</p>
+					</section>
+					<section>  
+						<p>Block</p>
+<pre><code class="liveCoding scss" data-livecoding-id="livecoding2" contenteditable>
+	.menu{}
+	.header{}
+	.content{}
+	.article{}
+	.heading{}
+	.form{}
+	.input{}
+	.footer{}
+
+</code></pre>
+					</section>
+					<section>
+						<h4>Element</h4>
+						<p class="fragment fade-in">Fragment bloku, który nie istenieje bez swojego rodzica.</p>
+						<p class="fragment fade-in">Jest 100% zależny od bloku, w którym się znajduje.</p>
+					</section>
+					<section>  
+						<p>Element</p>
+<pre><code class="liveCoding scss" data-livecoding-id="livecoding2" contenteditable>
+	.header_logo{}
+	.menu_item{}
+	.footer_copyright{}
+	.form_row{}
+
+</code></pre>
+					</section>
+					<section>
+						<h4>Modifier</h4>
+						<p class="fragment fade-in">Flaga, która modyfikuje wygląd bądź zachowanie bloków/elementów.</p>
+						<p class="fragment fade-in">Może być przypisywany do elementu jak i bezpośrednio do bloku.</p>
+					</section>
+					<section>  
+						<p>Modifier</p>
+<pre><code class="liveCoding scss" data-livecoding-id="livecoding2" contenteditable>
+	.header--fixed{}
+	.menu_item--highlighted{}
+	.heading--secondary{}
+	.input--disabled{}
+	.article--sticky{}
+
+</code></pre>
 					</section>
 					<section>
 						<h3>BEM to sposób nazewnictwa</h3>
-						<p>Chodzi tylko o jednolity zestaw regół, pozwalający tworzyć czytelny i prosty w utrzymaniu kod HTML i CSS.</p>
-						<p>BEM to sposob myślenia i uporządkowanego nazywania klas. Głównym celem BEM jest uniknięcie specyficzności i rozwiązanie dziedziczenia selektorów CSS. Im krótsze dziedziczenie tym lepiej!</p>
+						<p>Chodzi tylko o zestaw regół, czytelny i prosty w utrzymaniu kod HTML i CSS. BEM to sposob myślenia i uporządkowanego nazywania klas.</p>
+						<p>Głównym celem BEM jest uniknięcie specyficzności i rozwiązanie dziedziczenia selektorów CSS. Im krótsze dziedziczenie tym lepiej!</p>
+					</section>
+					<section id="fragments">
+						<h4>Zalety korzystania z BEM</h4>
+						<p class="fragment fade-in">Modularność.</p>
+						<p class="fragment fade-in">Reużywalność.</p>
+						<p class="fragment fade-in">Przejrzysta struktura.</p>
+					</section>
+					<section id="fragments">
+						<h4>Modularność.</h4>
+						<p class="fragment fade-in">Style bloków nie mieszają się ze sobą.</p>
+						<p class="fragment fade-in">Brak problemów związanych z kaskadowością styli.</p>
+						<p class="fragment fade-in">Możliwość wykorzystania całych bloków w innych projektach.</p>
+						<p class="fragment fade-in">Separacja styli od znaczników</p>
+						<p class="fragment fade-in">Rozwiązanie problemu dziedziczenia selektorów HTML i pochodności</p>
+					</section>
+					<section id="fragments">
+						<h4>Reużywalność.</h4>
+						<p class="fragment fade-in">Przy dobrym rozplanowaniu bloków na stronie i wykorzystywaniu tych samych bloków w kilku miejscach znacząco zmniejszamy ilość pisanego kodu.</p>
+						<p class="fragment fade-in">Z wykorzystaniem dodatkowych narzędzi takich jak KSS możemy tworzyć w pełni zautomatyzowane guideline'y.</p>
+						<p class="fragment fade-in">To podejście nazywamy<br>Style Guide Driven Development.</p>
+					</section>
+					<section id="fragments">
+						<h4>Przejrzysta struktura.</h4>
+						<p class="fragment fade-in">Dzięki metodologii BEM tworzymy kod o solidnej strukturze. Wdrożenie nowej osoby w kod jest mniej czasochłonne.</p>
 					</section>
 				</section>
 
@@ -90,35 +163,60 @@
 					</section>
 					<section>
 						<h3>Konwencje nazewnicze</h3>
-						<p class="fragment fade-up">blok to element który może istnieć samodzielnie</p>
+						<p class="fragment fade-up">blok to element, który może istnieć samodzielnie</p>
 						<p class="fragment fade-up">element jest zawsze zależny od swojego bloku</p>
-						<p class="fragment fade-up">modyfikator jest zawsze poprzeczony nazwą elementu</p>
+						<p class="fragment fade-up">modyfikator jest zawsze poprzedzony nazwą elementu</p>
 						<p class="fragment fade-up">możemy zagnieżdżać element w elemencie</p>
 						<p class="fragment fade-up">możemy zagnieżdżać blok w bloku</p>
-						<p class="fragment fade-up">jeżeli element będzie reużywalny to levelujemy go i tworzymy z niego blok</p>
-					</section>
-					<section>
-						<h3>Zalety stosowania BEM</h3>
-						<p class="fragment fade-up">Reużywalność</p>
-						<p class="fragment fade-up">Łatwe panowanie nad semantycznością</p>
-						<p class="fragment fade-up">Separacja styli od znaczników</p>
-						<p class="fragment fade-up">Rozwiązanie dziedziczenia selektorów HTML i pochodności</p>
+						<p class="fragment fade-up">jeżeli element będzie reużywalny to level'ujemy go i tworzymy z niego blok</p>
 					</section>
 				</section>
 
 				<section>
 					<section id="fragments">
-						<h3>Inne metodologie nazewnictwa CSS</h3>
+						<h3>Inne metodologie CSS</h3>
 						<p class="fragment">SMACSS</p>
 						<p class="fragment">OOCSS</p>
-						<p class="fragment">DRY</p>
+						<p class="fragment">SUITCSS</p>
+						<p class="fragment">Atomic</p>
 					</section>
 				</section>
 
-				<section data-background-color="#c6f92b">
+				<section>
 					<section id="fragments">
-						<img data-src="img/nodejs.svg">
-						<img class="sticker fragment" data-src="img/npm.svg">
+						<h3>Inne sposoby na tworzenie dobrego kodu</h3>
+						<p class="fragment fade-up">Dbanie o atrakcyjny wygląd <strong>na wszystkich</strong> możliwych widokach (nie progach)!</p>
+						<p class="fragment fade-up">Uniwersalne założenia dla kontenera i jego <strong>całego</strong> otoczenia</p>
+						<p class="fragment fade-up">Zamykanie custom'owych styli elementów w unikalnych blokach</p>
+					</section>
+					<section>
+						<h3>Pamiętaj, że każda metodologia jest lepsza niż żadna.</h3>
+					</section>
+				</section>
+
+				<section>
+
+					<section>
+						<h3>Metodologia Atomic Design</h3>
+						<p>Semantyczność i wspólny język z programistą</p>
+					</section>
+
+					<section data-background-video="img/atomic_design.mp4" data-background-video-loop="loop"></section>
+
+					<section>
+						<p>Atomic Design to <strong>design system</strong> oparty na podejściu komponentowym (Component Based Design).</p>
+						<p class="fragment fade-in">http://patternlab.io/</p>
+					</section>
+
+					<section>
+						<p>Projektowanie komponentowe ułatwia: <br> <span class="fragment">utrzymanie typografii,</span> <span class="fragment">kolorystyki,</span> <span class="fragment">identyfikacji wizualnej marki,</span> <span class="fragment">spójności designu w równoległych produktach,</span> <span class="fragment">późniejsze zmiany rozwojowe i utrzymaniowe</span> <span class="fragment">oraz konsekwencję w stosowaniu styli.</span></p>
+					</section>
+
+					<section>
+						<img data-src="img/atomic_components.svg">
+						<p class="fragment fade-in">
+							<span class="fragment">Atoms </span> - <span class="fragment"> Molecules </span> - <span class="fragment"> Organisms </span> - <span class="fragment"> Templates </span> - <span class="fragment"> Pages</span>
+						</p>
 					</section>
 				</section>
 
@@ -142,7 +240,7 @@
 				</section>
 			</div>
 			<div class="author">
-				<p>Paweł Gruś &reg; Asseco BS</p>
+				<p>Paweł Gruś <br> Front-end &amp; UIX Designer</p>
 			</div>
 		</div>
 
